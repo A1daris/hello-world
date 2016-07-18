@@ -57,5 +57,29 @@ function addClass(anyStr, myclass){
   };
  //testEl.textContent = addClass(str, 'open');
 
+
+// object practice -- Book list
+function Book(title, author, alreadyRead) {
+	this.title = title;
+    this.author = author;
+    this.alreadyRead = alreadyRead;
+    };
+var dorian = new Book('Dorian Grey', 'Unnown', false);
+var hobbit = new Book('The Hobbit', 'J.R.R. Tolkien', true);
+var iden = new Book('Martin Iden', 'Jack London', true);
+var bookArr = [dorian, hobbit, iden];
+var list = [];
+function bookList() {
+  for( var i = 0; i < 3; i++) {
+	if (bookArr[i]['alreadyRead'] == true) {
+    var red = 'You already read ' + bookArr[i]['title'] + ' by ' + bookArr[i]['author'] + '. Great job!';
+        } else  {
+    var notRed = 'It will be nice to read ' + bookArr[i]['title'] + ' by ' + bookArr[i]['author'] ;
+ }
+list[i] = '<li>' + (red || notRed) + '</li>';
+};
+};
+bookList(bookArr);
+testEl.innerHTML = '<ul>' + list + '</ul>';
 </script>
 
