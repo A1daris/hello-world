@@ -1,0 +1,33 @@
+<div id="test" style="margin: 0 auto; padding-top: 70px;
+    background: #a5a5a5;
+    width: 200px;
+    height: 120px; text-align:center; color: #fff; font: bold 22px Tahoma, serif;"></div>
+<script>
+
+var testEl = document.getElementById('test');
+//testEl.textContent
+
+var str = 'aaa@bbb@ccc';
+var repIt = str.replace(/@/g, '!');// parameter / /g   search all symbols
+
+var str2 = 'aaa bbb ccc';
+var try1 = str2.substr(4, 3); //substr(откуда отрезать, сколько отрезать)
+var try2 = str2.substring(4, 7); //substring(откуда отрезать, докуда отрезать)
+var try3 = str2.slice(4, 7);
+testEl.textContent = try2;
+
+var upper = 'im gonna scream';
+testEl.textContent = upper.toUpperCase();
+
+var arrpu = ['a', 'b', 'c'];
+arrpu.push(1, 2, 3);
+testEl.textContent = arrpu; //push добавляет неограниченное количество элементов в конец массива
+
+
+
+
+
+
+
+</script>
+
