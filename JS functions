@@ -1,6 +1,6 @@
 <div id="test" style="margin: 0 auto; padding-top: 70px;
     background: #a5a5a5;
-    width: 200px;
+    width: 600px;
     height: 120px; text-align:center; color: #fff; font: bold 22px Tahoma, serif;"></div>
 <script>
 
@@ -23,11 +23,26 @@ var arrpu = ['a', 'b', 'c'];
 arrpu.push(1, 2, 3);
 testEl.textContent = arrpu; //push добавляет неограниченное количество элементов в конец массива
 
+var hiObj = {
+	js:'test',
+    jq: 'hello',
+    css: 'world'
+    };
+testEl.textContent = (Object.keys(hiObj) + hiObj['js']);
 
+function math(a, b, c)
+{
+	return (a-b) / c
+};
+testEl.textContent = math(5 , 2 , 625);
 
-
-
-
+//Сделайте функцию, которая принимает год, а возвращает високосный это год или нет.
+function year(yeardate) {
+if((yeardate % 4 == 0 && yeardate % 100 !== 0) || yeardate % 400 == 0) {
+	return true
+    } else { return false}
+ }
+ testEl.textContent = year(2016);
 
 </script>
 
