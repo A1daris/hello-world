@@ -42,7 +42,20 @@ if((yeardate % 4 == 0 && yeardate % 100 !== 0) || yeardate % 400 == 0) {
 	return true
     } else { return false}
  }
- testEl.textContent = year(2016);
+ //testEl.textContent = year(2016);
+ 
+ 
+ //добавляет в список новый класс, но только если его там еще нет
+ var str='open menu';
+function addClass(anyStr, myclass){
+ 	if (str.indexOf(myclass) !== -1) {
+    return true;
+    }  else {
+    str = str +' '+ myclass;
+    alert(str);
+    }
+  };
+ //testEl.textContent = addClass(str, 'open');
 
 </script>
 
