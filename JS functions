@@ -57,6 +57,22 @@ function addClass(anyStr, myclass){
   };
  //testEl.textContent = addClass(str, 'open');
 
+// записать массив в строку
+var tru = ['я', 'учу', 'javascript', '!'];
+var truToString = tru.join(' ');
+console.log(truToString);
+
+
+//разбить строку на элементы в массив
+var string = 'я учу javascript!';
+var arr = string.split(' ');
+for (var i = 0; i < arr.length; i++) {
+  console.log( arr[i] );
+}
+
+
+
+
 
 // object practice -- Book list
 function Book(title, author, alreadyRead) {
@@ -82,4 +98,7 @@ list[i] = '<li>' + (red || notRed) + '</li>';
 bookList(bookArr);
 testEl.innerHTML = '<ul>' + list + '</ul>';
 </script>
+
+
+
 
