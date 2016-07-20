@@ -36,9 +36,16 @@ function sumTo(n) {
 // if( n > 1) {
 //return sumTo(n) = n + sumTo(n-1)    // рекурсией. !!! бесконечной - не стоит возвращать с тем - же аргументом
 //песочницы выдают ошибку Maximum call stack size exceeded, надо потестить
-//} else { result = sumTo(n)}console.log( result);
-
+//!!!!! right choice: рекурсией.
+//if (n == 1) return 1;
+//  return n + sumTo(n - 1);
 return ((1 + n)/2) * n    //по формуле пргрессии - тут все просто
-
 }
 alert(sumTo(100))
+
+//factorial
+function fact(n) {
+ if( n == 1) return 1 //по тому же принципу
+ else {return n * fact(n-1) }
+ }
+console.log(fact(19)); // 121645100408832000 шустро считает однако
