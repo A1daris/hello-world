@@ -21,3 +21,13 @@ function pow(x, n) {
 }
 
 alert(pow(2,3));// 2 в кубе = 8
+
+//арифметическая прогрессия 
+function sumTo(n) {
+ var result = 0;
+for( var i = 0; i <= n; i++) { //- циклом
+   result += i; 
+}
+return result
+}
+alert(sumTo(100))
