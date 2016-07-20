@@ -34,7 +34,8 @@ alert(sumTo(100))
 //арифметическая прогрессия 
 function sumTo(n) {
 // if( n > 1) {
-//return sumTo(n) = n + sumTo(n-1)    // рекурсией. песочницы выдают ошибку Maximum call stack size exceeded, надо потестить
+//return sumTo(n) = n + sumTo(n-1)    // рекурсией. !!! бесконечной - не стоит возвращать с тем - же аргументом
+//песочницы выдают ошибку Maximum call stack size exceeded, надо потестить
 //} else { result = sumTo(n)}console.log( result);
 
 return ((1 + n)/2) * n    //по формуле пргрессии - тут все просто
