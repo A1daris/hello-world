@@ -60,21 +60,14 @@ else {return (fib(n-2) + fib(n-1))
 alert(fib(27)) // на числе 47 моя функция подвесила браузер (
 // but no error returned )
 
+// Fibonacci 2 вариант
 function fib (n) {
 var res = [];
 for (i = 2; i <= n; i++){
-//if(i == 1) {res[i] = 1 }
-//else if(i == 2) {res[i] = 1}
-
-//else { 
 res[0] = 1;
 res[1] = 1;
-res[i] = +res[i-2] + +res[i-1];
-//}
-console.log(res[i])
+res[i] = res[i-2] + res[i-1];//пишем результат в массив
 }
-//res.shift();
-
 return(res[n-1])
 }
-alert(fib(7))
+alert(fib(77)) // за секунду
