@@ -49,3 +49,13 @@ function fact(n) {
  else {return n * fact(n-1) }
  }
 console.log(fact(19)); // 121645100408832000 шустро считает однако
+
+// Fibonacci 
+function fib (n) {
+if(n == 1) {return 1}
+else if(n == 2) {return 1}
+else {return (fib(n-2) + fib(n-1))
+}
+}
+alert(fib(27)) // на числе 47 моя функция подвесила браузер (
+// but no error returned )
