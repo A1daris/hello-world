@@ -71,3 +71,11 @@ res[i] = res[i-2] + res[i-1];//пишем результат в массив
 return(res[n-1])
 }
 alert(fib(77)) // за секунду
+
+//среднее арифметическое
+var arr = [1, 5,88,124,12];
+var sum = 0;
+for (var i = 0; i < arr.length; i++) {
+sum = sum + arr[i];
+}
+alert(sum/arr.length);
