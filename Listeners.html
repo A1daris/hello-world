@@ -17,9 +17,62 @@
   span:onhover {
     cursor: pointer;
   }
+  
+  .pane {
+    position: relative;
+    width: 470px;
+    border-top: 2px solid teal;
+    padding: 10px 20px 10px;
+    background-color: azure;
+  }
+  .remove-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    color: blue;
+    font-size: 2em;
+  }
+  .pane.hide{
+    display: none;
+  }
+
+
+  
 </style>
   <body>
-    
+  <div>
+    <div class="pane"><button class="remove-button">[x]</button>
+      <h3>Лошадь</h3>
+      <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+    </div>
+    <div class="pane"><button class="remove-button">[x]</button>
+      <h3>Осёл</h3>
+      <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+    </div>
+    <div class="pane"><button class="remove-button">[x]</button>
+      <h3>Корова, а также пара слов о диком быке, о волах и о тёлках. </h3>
+      <p>Коро́ва — самка домашнего быка, одомашненного подвида дикого быка, парнокопытного жвачного животного семейства полорогих. Самцы вида называются быками, молодняк — телятами, кастрированные самцы — волами. Молодых (до первой стельности) самок называют
+        тёлками.
+      </p>
+    </div>
+  </div>  
+  
+  <script>
+  // -------------------кнопка скрывает родительский блок----------------
+var x = document.getElementsByClassName('pane');
+var y = document.querySelectorAll("button");
+
+for( var i = 0; i < y.length; i++) {
+  y[i].addEventListener('click', function() {this.parentNode.classList.toggle('hide')});
+  }
+  </script>  
+     <!-------------------кнопка скрывает соседний блок---------------->
+<br><br>    
   <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
   <div id="text">Текст</div>
 
@@ -69,6 +122,7 @@
   }
 </script>
 <br><br>
+<!--//пример с сайта///событие конец ЦСС анимации-->
 <button id="elem" onclick="this.classList.toggle('wide');">
   Нажми меня
 </button>
