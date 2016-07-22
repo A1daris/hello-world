@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+<style>
+  button {
+    transition: width 1s;
+    width: 100px;
+  }
+
+  .wide {
+    width: 300px;
+  }
+  span:onhover {
+    cursor: pointer;
+  }
+</style>
+  <body>
+    
+  <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+  <div id="text">Текст</div>
+
+  <script>
+  function hideTxt() {
+     text.style.display = 'none';
+   }
+   hider.addEventListener("click", hideTxt);
+  </script>
+  <br><br>
+  <input type="button" id="hidy" value="Прячу  сама себя" />
+  <br><br>
+  <script>
+    document.getElementById('hidy').onclick = function() {
+      this.style.display = "none";
+    }
+  </script>
+<br><br>
+
+<!--////////Меню открывается по клику -надо: все свойства дисплэй собрать в 1 класс и добавлять его к меню-->
+<div id="divmenu">
+  <span id="left" style="color: green">▶</span>
+  <span id="down" style="color: green; display: none;">▼</span><span id="pushme1" >Сладости (нажми меня)!</span>
+  <ul id="menu" style="display: none;">
+    <li>Торт</li>
+    <li>Пончик</li>
+    <li>Пирожное</li>
+  </ul>
+</div>
+<script>
+  pushme1.addEventListener('click', hideMenu);
+  function hideMenu() {
+  //  menu.style.display = "visible;";
+   document.getElementById('menu').style.display = "inline";
+   document.getElementById('left').style.display = "none";
+   document.getElementById('down').style.display = "inline";
+  pushme1.removeEventListener('click', hideMenu);
+  pushme1.addEventListener('click', showMenu);
+  }
+  
+  function showMenu() {
+    document.getElementById('menu').style.display = "none";
+   document.getElementById('left').style.display = "";
+   document.getElementById('down').style.display = "none";
+   pushme1.removeEventListener('click', showMenu);
+   pushme1.addEventListener('click', hideMenu);
+  }
+</script>
+<br><br>
+<button id="elem" onclick="this.classList.toggle('wide');">
+  Нажми меня
+</button>
+
+<script>
+  elem.ontransitionend = function() {
+    alert( "ontransitionend" ); // не сработает
+  };
+
+  elem.addEventListener("transitionend", function() {
+    alert( "addEventListener" ); // сработает по окончании анимации
+  });
+</script>
+  </body>
+
+</html>
