@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+  <div id="wrapper">
+    <div id="btn-left" onclick="someJSmagicL()" class="button"><span title="aaa">left</span></div>
+    <div id="vis" class="div">
+          <ul id="car">
+            <li id="n0" class="carousel-item"><img src="http://megaicons.net/static/img/icons_sizes/84/205/96/home-icon.png">first - 0</li>
+            <li id="n1" class="carousel-item"><img src="http://megaicons.net/static/img/icons_sizes/84/205/96/archive-icon.png">second 1</li>
+            <li id="n2" class="carousel-item"><img src="http://megaicons.net/static/img/icons_sizes/84/205/96/bookmark-icon.png">third - 2</li>
+            <li id="n3" class="carousel-item"><img src="http://megaicons.net/static/img/icons_sizes/84/205/96/weather-sun-icon.png">fourth - 3</li>
+          </ul>
+    </div>
+    <div id="btn-right" onclick="someJSmagicR()" class="button"><span title="aaa">right</span></div>
+    <div id="dots">
+      <ul class="dot-list">
+        <li class="dot-item" id="dot0" onclick="getDot(this)"><span title="aaa">1</span></li>
+        <li class="dot-item" id="dot1" onclick="getDot(this)"><span title="aaa">2</span></li>
+        <li class="dot-item" id="dot2" onclick="getDot(this)"><span title="aaa">3</span></li>
+        <li class="dot-item" id="dot3" onclick="getDot(this)"><span title="aaa">4</span></li>
+      </ul>
+    </div>
+    <div id="counter" style="display:block; text-align: center;">00</div>
+  </div>
+<script>
+var numItems = 4; // кол-во слайдов
+var width = 100; // slide width
+var curr = 0; //текущая позиция
+var carEl = document.querySelector('#car'); // UL со слайдами
+var startMargin = '-200px';// марджин до запуска карусели
+//var setMargin = carEl.style.marginLeft;// марджин set
+
+function moveS(num) {
+  carEl.style.marginLeft = -(200 + (num * width)) + 'px';
+}
+
+//makes copy of slide and put in the end/begin of the list 
+function cloneSlide(num, dir) {
+  if (num >= numItems){ num1 = 0, curr = 0}
+  else { num1 = num}
+  var slideId = '#n' + num1;
+  //console.log(slideId);
+  //var slideId2 = '#n' + (num +1);
+  var slideEl = document.querySelector(slideId);
+  //var slide2El = document.querySelector(slideId2);
+  
+  if (dir == 'right') {
+    carEl.appendChild(slideEl);
+    //carEl.appendChild(slide2El);
+  } else if (dir == 'left') {
+   // carEl.insertBefore(slideEl, carEl.firstChild); 
+   carEl.insertBefore(carEl.lastChild, carEl.firstChild);
+  }
+}
+
+function someJSmagicR() {
+  //moveS(curr+1);
+  if (curr >= 0) { cloneSlide(curr, 'right') } else {}
+  curr++;
+  document.querySelector('#counter').textContent = curr;
+}
+function someJSmagicL() {
+  //moveS(curr-1);
+  //cloneSlide(curr+1, 'left');
+  if ( curr == 0) { num = 3; curr = 4
+  } else { num = curr - 1}
+  var slideId = '#n' + num;
+  console.log(slideId);
+  //var slideId2 = '#n' + (num +1);
+  var slideEl = document.querySelector(slideId);
+  carEl.insertBefore(slideEl, carEl.firstChild);
+  curr--;
+  document.querySelector('#counter').textContent = curr;
+}
+
+//onclick по точке ставит марджин = №точки * ширину слайда
+function getDot(item) {
+  var sw = +item.id.substring(3); 
+  moveS(sw);
+}
+</script>      
+  </body>
+
+</html>
